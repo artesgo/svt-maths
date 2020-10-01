@@ -22,8 +22,10 @@
 	<footer>
 		<div class="container">
 			<div>Your Stats:</div>
-			<div>Attempts: {$attempts}</div>
-			<div>Errors: {$errors}</div>
+			<div>
+				<div>Attempts: {$attempts}</div>
+				<div>Errors: {$errors}</div>
+			</div>
 			<Checker />
 		</div>
 	</footer>
@@ -38,14 +40,13 @@
 	}
 
 	main {
-		padding: 1em;
-		width: 640px;
+		padding: 1em 1em 120px 1em;
 		margin: 0 auto;
 	}
 
 	@media (min-width: 640px) {
 		main {
-			max-width: none;
+			width: 60%;
 		}
 	}
 	
@@ -55,6 +56,7 @@
         width: 100%;
         position: fixed;
         border-top: 1px solid green;
+		background: white;
     }
     .container {
         display: flex;

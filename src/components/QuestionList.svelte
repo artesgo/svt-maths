@@ -21,9 +21,11 @@
 </section>
 
 <style>
+@media (min-width: 1200px) {
     section {
         display: grid;
         grid-template-columns: 1fr 1fr;
         margin-bottom: 60px;
     }
+}
 </style>

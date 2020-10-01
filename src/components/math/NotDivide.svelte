@@ -76,7 +76,7 @@
         flex-direction: column;
         justify-content: end;
         align-items: flex-end;
-        width: 300px;
+        width: 70%;
         margin-right: 8px;
     }
     .helper-adder {
