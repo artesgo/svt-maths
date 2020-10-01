@@ -6,5 +6,6 @@ export const attempts = writable(0);
 export const errors = writable(0);
 export const settings = writable({
     difficulty: Difficulties.easy,
-    operation : Operations.add
+    operation: Operations.add,
+    questionSet: 0,
 })

@@ -1,7 +1,8 @@
 <script>
-    import { attempts } from '../../store/store';
+    import { settings, attempts } from '../../store/store';
     function increment() {
-        attempts.update(n => 0);
+        $attempts = 0;
+        $settings.questionSet++;
     }
 </script>
 

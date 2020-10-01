@@ -1,8 +1,9 @@
 <script lang="ts">
     import { Operations } from '../../models/operations';
-    import { settings } from '../../store/store';
+    import { settings, attempts } from '../../store/store';
     let operation;
     function dispatchOperation() {
+        $attempts = 0;
         $settings.operation = operation;
     }
 </script>

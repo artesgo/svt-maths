@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { onDestroy, onMount } from 'svelte';
+    import { onDestroy } from 'svelte';
 
     import { attempts, errors } from './../store/store';
     export let error = false;
@@ -7,15 +7,18 @@
     export let value = '';
     export let expected = '';
     export let check: boolean = false;
+    export let helper: boolean = false;
+    let _value = getValue();
 
     const unsub = attempts.subscribe((att) => {
         if (att && check) {
             doCheck();
         }
     });
-    onDestroy(unsub);
-
-    $: _value = getValue();
+    onDestroy(() => {
+        check = false;
+        unsub();
+    });
 
     function getValue() {
         if (check) {
@@ -33,14 +36,16 @@
     }
 </script>
 
-<label>
+{#if _value !== undefined}
+<label class:helper={helper}>
     <input type="text"
-        disabled={!check}
+        disabled={!check && !helper}
         class:error={error}
         class:correct={!error && $attempts > 0 && check}
         bind:value={_value} maxlength="1">
     {position}
 </label>
+{/if}
 
 <style>
     label {
@@ -61,6 +66,15 @@
         display: inline-block;
         text-align: center;
         color: #222;
+    }
+
+    label.helper {
+        height: 24px;
+    }
+
+    label.helper input {
+        height: 24px;
+        background: plum;
     }
 
     input::-webkit-outer-spin-button,

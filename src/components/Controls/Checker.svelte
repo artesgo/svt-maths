@@ -1,7 +1,6 @@
 <script>
     import { attempts, errors } from '../../store/store';
     function increment() {
-        errors.set(0);
         attempts.update(n => n + 1);
     }
 </script>

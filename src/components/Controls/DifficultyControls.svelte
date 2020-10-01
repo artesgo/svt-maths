@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { Difficulties } from './../../models/difficulties';
-    import { settings } from '../../store/store';
+    import { settings, attempts } from '../../store/store';
     let difficulty;
     function dispatchDifficulty() {
+        $attempts = 0;
         $settings.difficulty = difficulty;
     }
 </script>
