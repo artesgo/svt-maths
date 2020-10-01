@@ -1,22 +1,19 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
+    import { onDestroy, onMount } from 'svelte';
 
-    import { attempts } from './../store/store';
+    import { attempts, errors } from './../store/store';
     export let error = false;
     export let position = 'ones';
     export let value = '';
     export let expected = '';
     export let check: boolean = false;
 
-    onMount(() => {
-        if (check) {
-            attempts.subscribe((att) => {
-                if (att) {
-                    doCheck();
-                }
-            });
+    const unsub = attempts.subscribe((att) => {
+        if (att && check) {
+            doCheck();
         }
     });
+    onDestroy(unsub);
 
     $: _value = getValue();
 
@@ -31,6 +28,7 @@
         error = false;
         if (expected != _value) {
             error = true;
+            errors.update(n => n + 1);
         }
     }
 </script>
@@ -38,8 +36,8 @@
 <label>
     <input type="text"
         disabled={!check}
-        class:error={error} 
-        class:correct={!error && $attempts > 0 && check} 
+        class:error={error}
+        class:correct={!error && $attempts > 0 && check}
         bind:value={_value} maxlength="1">
     {position}
 </label>

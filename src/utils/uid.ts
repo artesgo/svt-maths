@@ -4,6 +4,7 @@ export class UID {
         return UID.id;
     }
     static createId() {
+        console.log(UID.id)
         return UID.id++;
     }
 }

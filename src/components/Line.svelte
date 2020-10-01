@@ -1,11 +1,16 @@
 <script lang="ts">
+    import { afterUpdate, onMount, tick } from 'svelte';
 	import { UID } from './../utils/uid';
 	import { place } from './../models/place';
     import Digit from "./Digit.svelte";
     export let term;
     export let check: boolean = false;
-    export let operator;
-    
+    let _term = [];
+
+    afterUpdate(() => {
+        _term = getDigits(term);
+    });
+
     function getDigits(num: number): {id: number, digit: string}[] {
         return appendUid(num.toString().split(''));
     }
@@ -26,14 +31,11 @@
 </script>
 
 <div class="line" class:answer={check}>
-    {#if !!operator}
-        <Digit value={operator} />
-    {/if}
-    {#each getDigits(term) as value, index (value.id)}
+    {#each _term as value, index (value.id)}
     <Digit {check} 
         value={check ? '' : value.digit} 
         expected={value.digit} 
-        position={getPosition(getDigits(term), index)} />
+        position={getPosition(_term, index)} />
     {/each}
 </div>
 
