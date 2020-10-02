@@ -7,15 +7,15 @@
 	import { attempts, errors } from './store/store';
 </script>
 
+<header>
+	<h1>Svelte Mathematics</h1>
+	<div>
+		<OperationControls />
+		<DifficultyControls />
+		<NewQuestion />
+	</div>
+</header>
 <main>
-	<header>
-		<h1>MQuest</h1>
-		<div>
-			<OperationControls />
-			<DifficultyControls />
-			<NewQuestion />
-		</div>
-	</header>
 
 	<QuestionList  />
 
@@ -45,6 +45,10 @@
 	}
 
 	@media (min-width: 640px) {
+		header {
+			width: 80%;
+			margin: 0 auto;
+		}
 		main {
 			width: 60%;
 		}

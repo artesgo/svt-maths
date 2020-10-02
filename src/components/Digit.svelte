@@ -9,6 +9,7 @@
     export let check: boolean = false;
     export let helper: boolean = false;
     let _value = getValue();
+    let ref;
 
     const unsub = attempts.subscribe((att) => {
         if (att && check) {
@@ -34,11 +35,16 @@
             errors.update(n => n + 1);
         }
     }
+    function focus() {
+        ref.select();
+    }
 </script>
 
 {#if _value !== undefined}
 <label class:helper={helper}>
     <input type="text"
+        bind:this={ref}
+        on:click={focus}
         disabled={!check && !helper}
         class:error={error}
         class:correct={!error && $attempts > 0 && check}

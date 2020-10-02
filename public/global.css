@@ -40,6 +40,11 @@ input, button, select, textarea {
 	border-radius: 2px;
 }
 
+input::selection {
+	background: #FC0;
+	color: #000;
+}
+
 input:disabled {
 	color: #ccc;
 }
