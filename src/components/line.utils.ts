@@ -9,6 +9,9 @@ export function getPosition(arr, index) {
 }
 
 export function getDigits(num: number): { id: number; digit: string }[] {
+  if (num === undefined) {
+    return [];
+  }
   return appendUid(num.toString().split(""));
 }
 
