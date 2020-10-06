@@ -8,15 +8,13 @@ let questions = new Array(4);
 
 <section>
   {#each questions as question}
-    {#if $settings.operation === Operations.divide}
-      <div>
+    <div>
+      {#if $settings.operation === Operations.divide}
         <Divide />
-      </div>
-    {:else}
-      <div>
+      {:else}
         <NotDivide />
-      </div>
-    {/if}
+      {/if}
+    </div>
   {/each}
 </section>
 

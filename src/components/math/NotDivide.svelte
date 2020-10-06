@@ -1,7 +1,5 @@
 <script lang="ts">
 import { onMount } from "svelte";
-import { slide } from "svelte/transition";
-import { cubicInOut, cubicOut, linear } from "svelte/easing";
 import { attempts, errors, settings } from "./../../store/store";
 import { Operations } from "./../../models/operations";
 import { Difficulties } from "./../../models/difficulties";
@@ -38,7 +36,9 @@ function add() {
     {#if i < terms.length - 1 && i !== 0}{$settings.operation}{/if}{item}
   {/each}
 </h2>
+
 <div class="question">
+  <div class="spacer"></div>
   <section>
     {#each terms as term, index}
       <Line term="{term}" />
@@ -51,16 +51,18 @@ function add() {
             <button on:click="{() => pop()}">- Work Line</button>
           </div>
         {/if}
-        <div transition:slide="{{ duration: 200, easing: linear }}">
-          <HelperLine answer="{answer}" />
-        </div>
+        <HelperLine answer="{answer}" />
       {/each}
+
+      <hr />
+
       <div class="helper-adder">
         <button on:click="{add}">+ Work Line</button>
       </div>
       <Line term="{answer}" check="{true}" />
     {/if}
   </section>
+  <div class="spacer"></div>
 </div>
 
 <style>
@@ -71,12 +73,14 @@ h2 {
   display: flex;
   align-items: flex-end;
 }
+.spacer {
+  width: 100%;
+}
 section {
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: flex-end;
-  width: 70%;
   margin-right: 8px;
 }
 .helper-adder {
@@ -85,7 +89,6 @@ section {
 .helper-adder button {
   position: absolute;
   left: 8px;
-  top: 9px;
   white-space: nowrap;
   height: 36px;
 }
@@ -99,5 +102,10 @@ section {
   height: 24px;
   white-space: nowrap;
   padding: 0 4px;
+}
+hr {
+  width: 100%;
+  margin: 0 0 8px 0;
+  /* padding: 0; */
 }
 </style>

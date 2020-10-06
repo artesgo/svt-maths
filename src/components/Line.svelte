@@ -1,6 +1,5 @@
 <script lang="ts">
 import { afterUpdate } from "svelte";
-import { fly } from "svelte/transition";
 import Digit from "./Digit.svelte";
 import { getDigits, getPosition } from "./line.utils";
 
@@ -16,14 +15,12 @@ afterUpdate(() => {
 
 <div class="line" class:answer="{check}">
   {#each _term as value, index (value.id)}
-    <div transition:fly="{{ y: -100, x: 0, duration: 300 }}">
-      <Digit
-        check="{check}"
-        value="{check ? '' : value.digit}"
-        expected="{value.digit}"
-        position="{getPosition(_term, index)}"
-      />
-    </div>
+    <Digit
+      check="{check}"
+      value="{check ? '' : value.digit}"
+      expected="{value.digit}"
+      position="{getPosition(_term, index)}"
+    />
   {/each}
 </div>
 
@@ -32,10 +29,5 @@ afterUpdate(() => {
   display: flex;
   justify-content: right;
   align-items: flex-start;
-}
-
-.answer {
-  border-top: 1px solid black;
-  padding-top: 8px;
 }
 </style>

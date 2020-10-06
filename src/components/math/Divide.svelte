@@ -1,7 +1,5 @@
 <script lang="ts">
 import { onMount } from "svelte";
-import { slide } from "svelte/transition";
-import { cubicInOut, cubicOut, linear } from "svelte/easing";
 import { attempts, errors, settings } from "./../../store/store";
 import { Operations } from "./../../models/operations";
 import { Difficulties } from "./../../models/difficulties";
@@ -45,12 +43,15 @@ function add() {
 </h2>
 
 <div class="question">
+  <div class="spacer"></div>
   <section>
     {#if answer !== undefined}
       <Line term="{answer}" check="{true}" />
+
       <div class="helper-adder">
         <button on:click="{add}">+ Work Line</button>
       </div>
+
       <div class="divisor-dividend">
         <div class="divisor">
           <Line term="{divisor}" />
@@ -68,12 +69,11 @@ function add() {
             <button on:click="{() => pop()}">- Work Line</button>
           </div>
         {/if}
-        <div transition:slide="{{ duration: 200, easing: linear }}">
-          <HelperLine answer="{dividend}" />
-        </div>
+        <HelperLine answer="{dividend}" />
       {/each}
     {/if}
   </section>
+  <div class="spacer"></div>
 </div>
 
 <style>
@@ -83,6 +83,9 @@ h2 {
 .question {
   display: flex;
   align-items: flex-end;
+}
+.spacer {
+  width: 100%;
 }
 section {
   display: flex;
