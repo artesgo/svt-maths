@@ -1,4 +1,5 @@
 <script lang="ts">
+import Tailwind from "./Tailwind.svelte";
 import Auth from "./components/firebase/auth/Auth.svelte";
 import DifficultyControls from "./components/Controls/DifficultyControls.svelte";
 import OperationControls from "./components/Controls/OperationControls.svelte";
@@ -9,6 +10,7 @@ import { attempts, errors } from "./store/store";
 </script>
 
 <header>
+  <Tailwind />
   <h1>Svelte Mathematics</h1>
   <div>
     <Auth />

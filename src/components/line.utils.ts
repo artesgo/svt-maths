@@ -1,7 +1,7 @@
 import { place } from "../models/place";
 import { UID } from "../utils/uid";
 
-export function getPosition(arr, index) {
+export function getPosition(arr: number[], index: number): string {
   // what is the length of the array
   const length = arr.length;
   const places = place.slice(0, length).reverse();

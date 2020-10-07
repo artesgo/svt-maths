@@ -10,6 +10,7 @@
     "validate": "svelte-check"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^3.0.0",
     "@rollup/plugin-commonjs": "^14.0.0",
     "@rollup/plugin-node-resolve": "^8.0.0",
     "@rollup/plugin-typescript": "^6.0.0",
@@ -17,6 +18,9 @@
     "firebase": "^7.22.1",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
+    "postcss": "^8.1.1",
+    "postcss-load-config": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.1.2",
     "prettier-plugin-svelte": "^1.4.0",
     "rollup": "^2.3.4",
@@ -26,6 +30,7 @@
     "svelte": "^3.27.0",
     "svelte-check": "^1.0.55",
     "svelte-preprocess": "^4.3.0",
+    "tailwindcss": "^1.8.11",
     "tslib": "^2.0.0",
     "typescript": "^3.9.3"
   },
