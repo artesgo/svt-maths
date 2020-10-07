@@ -1,4 +1,5 @@
 <script lang="ts">
+import Auth from "./components/firebase/auth/Auth.svelte";
 import DifficultyControls from "./components/Controls/DifficultyControls.svelte";
 import OperationControls from "./components/Controls/OperationControls.svelte";
 import NewQuestion from "./components/Controls/NewQuestion.svelte";
@@ -10,6 +11,7 @@ import { attempts, errors } from "./store/store";
 <header>
   <h1>Svelte Mathematics</h1>
   <div>
+    <Auth />
     <OperationControls />
     <DifficultyControls />
     <NewQuestion />
