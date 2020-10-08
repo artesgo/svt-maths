@@ -30,6 +30,13 @@ describe("line utils", () => {
         { id: 2, digit: "3" },
       ]);
     });
+
+    it("should retrieve empty array", () => {
+      let num = undefined;
+      let digits = getDigits(num);
+
+      expect(digits).toEqual([]);
+    });
   });
 
   describe("appendUid", () => {

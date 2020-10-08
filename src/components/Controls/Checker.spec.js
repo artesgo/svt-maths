@@ -11,6 +11,8 @@ describe('Checker', () => {
 	});
 
 	it('is a Check button', (next) => {
+		// TODO: Svelte Component Scaffolding for tests like this is bulky
+		// check out @testing-library/svelte
 		// wait for component to mount
 		setTimeout(() => {
 			const { firstElementChild: element } = target;
