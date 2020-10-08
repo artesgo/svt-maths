@@ -1,0 +1,22 @@
+{
+  "transform": {
+    "^.+\\.js$": "babel-jest",
+    "^.+\\.svelte$": ["svelte-jester", { 
+      "preprocess": false,
+      "debug": false,
+      "compilerOptions": {},
+      "rootMode": ""
+    }],
+    "^.+\\.ts$": "ts-jest"
+  },
+  "moduleFileExtensions": [
+    "js",
+    "ts",
+    "svelte"
+  ],
+  "globals": {
+    "ts-jest": {
+      "tsConfig": "tsconfig.spec.json"
+    }
+  }
+}

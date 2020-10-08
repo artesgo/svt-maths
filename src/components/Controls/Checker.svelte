@@ -1,5 +1,5 @@
 <script>
-import { attempts, errors } from "../../store/store";
+import { attempts } from "../../store/store";
 function increment() {
   attempts.update((n) => n + 1);
 }
