@@ -24,10 +24,8 @@ afterUpdate(() => {
   {/each}
 </div>
 
-<style>
+<style lang="postcss">
 .line {
-  display: flex;
-  justify-content: right;
-  align-items: flex-start;
+  @apply flex justify-end items-start;
 }
 </style>

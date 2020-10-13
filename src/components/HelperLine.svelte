@@ -19,12 +19,8 @@ afterUpdate(() => {
   {/each}
 </div>
 
-<style>
+<style lang="postcss">
 .line {
-  display: flex;
-  justify-content: right;
-  align-items: flex-start;
-  border-top: 1px dashed black;
-  padding-top: 8px;
+  @apply flex justify-end items-start border-t border-dashed pt-1;
 }
 </style>

@@ -1,6 +1,8 @@
 <script lang="ts">
 import firebase from "firebase/app";
 import "firebase/auth";
+import { Button, Modal } from "carbon-components-svelte";
+
 const firebaseConfig = {
   apiKey: "AIzaSyAzeeTM8hDkORTYVX8EFbIJ9xwiYIAHbDw",
   authDomain: "maths-cea13.firebaseapp.com",
@@ -56,26 +58,55 @@ let signinViaEmail = false;
 function toggleEmailLogin(viaEmail: boolean) {
   signinViaEmail = viaEmail;
 }
+let open = false;
 </script>
 
 {#if loggedIn}
-  <div class="w-full max-w-xs">
-    <div class="text-center">
-      <h2>{user.email}</h2>
-      <button type="button" class="mt-3" on:click="{logout}">Logout</button>
+  <Button size="small" kind="danger" on:click="{() => (open = true)}">
+    Logout
+  </Button>
+
+  <Modal
+    modalHeading="Logout"
+    primaryButtonText="Logout"
+    secondaryButtonText="Cancel"
+    on:open
+    on:close
+    on:submit
+  >
+    <div class="w-full max-w-xs">
+      <div class="text-center">
+        <h2>{user.email}</h2>
+        <button type="button" class="mt-3" on:click="{logout}">Logout</button>
+      </div>
     </div>
-  </div>
+  </Modal>
 {:else}
-  <div class="w-full max-w-xs">
+  <Button size="small" kind="danger" on:click="{() => (open = true)}">
+    Login
+  </Button>
+
+  <Modal
+    bind:open
+    modalHeading="Login"
+    primaryButtonText="Login"
+    secondaryButtonText="Cancel"
+    on:open
+    on:close
+    on:submit
+  >
+    Email Login
+  </Modal>
+  <!-- <div class="w-full max-w-xs">
     <form class="px-8 pt-6 pb-8 bg-white shadow-md">
       {#if !signinViaEmail}
         <div class="mt-3">
           <button
             type="button"
             on:click|preventDefault="{() => toggleEmailLogin(true)}"
-          >Sign In With Email</button>
+          >Log In With Email</button>
           <button type="button" on:click|preventDefault="{loginWithGoogle}">
-            Sign In with Google
+            Log In with Google
           </button>
         </div>
       {/if}
@@ -101,29 +132,30 @@ function toggleEmailLogin(viaEmail: boolean) {
         <div>
           <button type="submit">Sign In</button>
           <button type="button" on:click|preventDefault="{loginWithGoogle}">
-            Sign In with Google
+            Log In with Google
           </button>
         </div>
       {/if}
     </form>
-  </div>
+  </div> -->
 {/if}
 
-<style lang="postcss">
+<stylelang="postcss">
 label {
-  @apply block mb-2 text-sm font-bold text-gray-700;
+  @apply block mb-2 text-sm font-bold bg-purple;
 }
 .input-field {
-  @apply border w-full py-2 px-3 text-gray-700 mb-3;
+  @apply border w-full py-2 px-3 bg-purple mb-3;
 }
 .input-field:focus {
   @apply shadow-outline outline-none;
 }
 button {
-  @apply w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-sm;
+  white-space: nowrap;
+  @apply w-1/2 px-2 py-0 font-bold bg-white text-purple rounded-sm;
 }
 button:hover {
-  @apply bg-blue-700;
+  @apply border-purple;
 }
 button:focus {
   @apply outline-none shadow-outline;

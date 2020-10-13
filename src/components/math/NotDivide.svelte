@@ -1,8 +1,9 @@
 <script lang="ts">
 import { onMount } from "svelte";
-import { attempts, errors, settings } from "./../../store/store";
-import { Operations } from "./../../models/operations";
-import { Difficulties } from "./../../models/difficulties";
+import { Button } from "carbon-components-svelte";
+import Add16 from "carbon-icons-svelte/lib/Add16";
+import Subtract16 from "carbon-icons-svelte/lib/Subtract16";
+import { settings } from "./../../store/store";
 import { generateQuestion } from "./../../utils/generator";
 
 import Line from "./../Line.svelte";
@@ -48,7 +49,17 @@ function add() {
       {#each helpers as term, hi}
         {#if helpers.length === hi + 1}
           <div class="remove-helper">
-            <button on:click="{() => pop()}">- Work Line</button>
+            <div class="button">
+              <Button
+                icon="{Subtract16}"
+                size="small"
+                kind="tertiary"
+                on:click="{() => pop()}"
+              >
+                <span class="sr-only"> Remove </span>
+                Work
+              </Button>
+            </div>
           </div>
         {/if}
         <HelperLine answer="{answer}" />
@@ -57,7 +68,12 @@ function add() {
       <hr />
 
       <div class="helper-adder">
-        <button on:click="{add}">+ Work Line</button>
+        <div class="button">
+          <Button icon="{Add16}" size="small" kind="tertiary" on:click="{add}">
+            <span class="sr-only">Add</span>
+            Work
+          </Button>
+        </div>
       </div>
       <Line term="{answer}" check="{true}" />
     {/if}
@@ -65,47 +81,38 @@ function add() {
   <div class="spacer"></div>
 </div>
 
-<style>
+<style lang="postcss">
 h2 {
-  font-size: 18px;
+  @apply text-lg;
 }
 .question {
-  display: flex;
-  align-items: flex-end;
+  @apply flex items-end;
 }
 .spacer {
-  width: 100%;
+  @apply w-full;
 }
 section {
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  align-items: flex-end;
-  margin-right: 8px;
+  @apply mr-1 flex flex-col justify-end items-end;
 }
 .helper-adder {
   position: relative;
 }
-.helper-adder button {
+.helper-adder .button {
   position: absolute;
-  left: 8px;
   white-space: nowrap;
-  height: 36px;
+  @apply h-5 left-0 ml-1 px-0
+    border rounded-sm border-coal;
 }
 .remove-helper {
   position: relative;
 }
-.remove-helper button {
+.remove-helper .button {
   position: absolute;
-  left: 8px;
   top: 9px;
-  height: 24px;
   white-space: nowrap;
-  padding: 0 4px;
+  @apply px-0 left-0 ml-1;
 }
 hr {
-  width: 100%;
-  margin: 0 0 8px 0;
-  /* padding: 0; */
+  @apply w-full mb-1;
 }
 </style>

@@ -60,34 +60,18 @@ function focus() {
   </label>
 {/if}
 
-<style>
+<style lang="postcss">
 label {
-  visibility: hidden;
-  position: relative;
-  width: 36px;
-  height: 36px;
-  margin-bottom: 8px;
+  @apply relative w-5 h-5 mb-1 invisible;
 }
 input {
-  left: 0;
-  visibility: visible;
-  position: absolute;
-  border: 1px solid black;
-  width: 36px;
-  height: 36px;
-  background: none;
-  display: inline-block;
-  text-align: center;
-  color: #222;
-}
-
-label.helper {
-  height: 24px;
+  @apply w-5 h-5 border left-0 
+    absolute visible inline-block
+    text-center text-coal bg-none;
 }
 
 label.helper input {
-  height: 24px;
-  background: plum;
+  @apply bg-orange-lighter;
 }
 
 input::-webkit-outer-spin-button,
@@ -97,10 +81,10 @@ input::-webkit-inner-spin-button {
 }
 
 input.error {
-  background: pink;
+  @apply bg-rose-bright;
 }
 
 input.correct {
-  background: greenyellow;
+  @apply bg-green-bright;
 }
 </style>

@@ -1,15 +1,22 @@
 <script lang="ts">
+import { Select, SelectItem } from "carbon-components-svelte";
 import { Difficulties } from "./../../models/difficulties";
 import { settings, attempts } from "../../store/store";
-let difficulty;
-function dispatchDifficulty() {
-  $attempts = 0;
-  $settings.difficulty = difficulty;
+function dispatchDifficulty(event) {
+  if (event?.detail) {
+    $attempts = 0;
+    $settings.difficulty = Number.parseInt(event.detail);
+  }
 }
 </script>
 
-<select on:blur="{dispatchDifficulty}" bind:value="{difficulty}">
-  <option value="{Difficulties.easy}">Easy</option>
-  <option value="{Difficulties.normal}">Normal</option>
-  <option value="{Difficulties.hard}">Hard</option>
-</select>
+<Select
+  size="sm"
+  hideLabel
+  labelText="Difficulty"
+  on:change="{dispatchDifficulty}"
+>
+  <SelectItem value="{Difficulties.easy.toString()}" text="Easy" />
+  <SelectItem value="{Difficulties.normal.toString()}" text="Normal" />
+  <SelectItem value="{Difficulties.hard.toString()}" text="Hard" />
+</Select>

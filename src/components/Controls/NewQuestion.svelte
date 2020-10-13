@@ -1,4 +1,5 @@
 <script>
+import { Button } from "carbon-components-svelte";
 import { settings, attempts } from "../../store/store";
 function increment() {
   $attempts = 0;
@@ -6,4 +7,6 @@ function increment() {
 }
 </script>
 
-<button on:click="{increment}" on:click>New Questions</button>
+<Button size="small" kind="secondary" on:click on:click="{increment}">
+  New Questions
+</Button>
