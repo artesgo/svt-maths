@@ -97,50 +97,50 @@ let open = false;
   >
     Email Login
   </Modal>
-  <!-- <div class="w-full max-w-xs">
-    <form class="px-8 pt-6 pb-8 bg-white shadow-md">
-      {#if !signinViaEmail}
-        <div class="mt-3">
-          <button
-            type="button"
-            on:click|preventDefault="{() => toggleEmailLogin(true)}"
-          >Log In With Email</button>
-          <button type="button" on:click|preventDefault="{loginWithGoogle}">
-            Log In with Google
-          </button>
-        </div>
-      {/if}
-      {#if signinViaEmail}
-        <div class="mb-4">
-          <label for="email">Email</label>
-          <input
-            class="input-field"
-            id="email"
-            type="email"
-            placeholder="name@acme.com"
-          />
-        </div>
-        <div class="mb-6">
-          <label for="password">Password</label>
-          <input
-            class="input-field"
-            id="password"
-            type="password"
-            placeholder="******************"
-          />
-        </div>
-        <div>
-          <button type="submit">Sign In</button>
-          <button type="button" on:click|preventDefault="{loginWithGoogle}">
-            Log In with Google
-          </button>
-        </div>
-      {/if}
-    </form>
-  </div> -->
 {/if}
 
-<stylelang="postcss">
+<!-- <div class="w-full max-w-xs">
+  <form class="px-8 pt-6 pb-8 bg-white shadow-md">
+    {#if !signinViaEmail}
+      <div class="mt-3">
+        <button
+          type="button"
+          on:click|preventDefault="{() => toggleEmailLogin(true)}"
+        >Log In With Email</button>
+        <button type="button" on:click|preventDefault="{loginWithGoogle}">
+          Log In with Google
+        </button>
+      </div>
+    {/if}
+    {#if signinViaEmail}
+      <div class="mb-4">
+        <label for="email">Email</label>
+        <input
+          class="input-field"
+          id="email"
+          type="email"
+          placeholder="name@acme.com"
+        />
+      </div>
+      <div class="mb-6">
+        <label for="password">Password</label>
+        <input
+          class="input-field"
+          id="password"
+          type="password"
+          placeholder="******************"
+        />
+      </div>
+      <div>
+        <button type="submit">Sign In</button>
+        <button type="button" on:click|preventDefault="{loginWithGoogle}">
+          Log In with Google
+        </button>
+      </div>
+    {/if}
+  </form>
+</div> -->
+<style lang="postcss">
 label {
   @apply block mb-2 text-sm font-bold bg-purple;
 }
