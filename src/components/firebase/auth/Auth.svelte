@@ -54,10 +54,6 @@ auth.onAuthStateChanged(async (fireUser) => {
 });
 
 $: loggedIn = user !== null;
-let signinViaEmail = false;
-function toggleEmailLogin(viaEmail: boolean) {
-  signinViaEmail = viaEmail;
-}
 let open = false;
 </script>
 
@@ -67,17 +63,18 @@ let open = false;
   </Button>
 
   <Modal
+    bind:open
     modalHeading="Logout"
     primaryButtonText="Logout"
     secondaryButtonText="Cancel"
     on:open
-    on:close
-    on:submit
+    on:click:button--secondary="{() => (open = false)}"
+    on:close="{() => (open = false)}"
+    on:submit="{logout}"
   >
     <div class="w-full max-w-xs">
       <div class="text-center">
         <h2>{user.email}</h2>
-        <button type="button" class="mt-3" on:click="{logout}">Logout</button>
       </div>
     </div>
   </Modal>
@@ -92,72 +89,49 @@ let open = false;
     primaryButtonText="Login"
     secondaryButtonText="Cancel"
     on:open
-    on:close
+    on:click:button--secondary="{() => (open = false)}"
+    on:close="{() => (open = false)}"
     on:submit
   >
-    Email Login
+    <div class="flex items-start justify-between">
+      <div>
+        <Button type="button" on:click="{loginWithGoogle}">
+          Log In with Google
+        </Button>
+      </div>
+
+      <form>
+        <div>
+          <label for="email">Email</label>
+          <input
+            class="input-field"
+            id="email"
+            type="email"
+            placeholder="name@acme.com"
+          />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input
+            class="input-field"
+            id="password"
+            type="password"
+            placeholder="******************"
+          />
+        </div>
+      </form>
+    </div>
   </Modal>
 {/if}
 
-<!-- <div class="w-full max-w-xs">
-  <form class="px-8 pt-6 pb-8 bg-white shadow-md">
-    {#if !signinViaEmail}
-      <div class="mt-3">
-        <button
-          type="button"
-          on:click|preventDefault="{() => toggleEmailLogin(true)}"
-        >Log In With Email</button>
-        <button type="button" on:click|preventDefault="{loginWithGoogle}">
-          Log In with Google
-        </button>
-      </div>
-    {/if}
-    {#if signinViaEmail}
-      <div class="mb-4">
-        <label for="email">Email</label>
-        <input
-          class="input-field"
-          id="email"
-          type="email"
-          placeholder="name@acme.com"
-        />
-      </div>
-      <div class="mb-6">
-        <label for="password">Password</label>
-        <input
-          class="input-field"
-          id="password"
-          type="password"
-          placeholder="******************"
-        />
-      </div>
-      <div>
-        <button type="submit">Sign In</button>
-        <button type="button" on:click|preventDefault="{loginWithGoogle}">
-          Log In with Google
-        </button>
-      </div>
-    {/if}
-  </form>
-</div> -->
 <style lang="postcss">
 label {
-  @apply block mb-2 text-sm font-bold bg-purple;
+  @apply block mb-2 text-sm font-bold;
 }
 .input-field {
-  @apply border w-full py-2 px-3 bg-purple mb-3;
+  @apply border w-full py-2 px-3 mb-3;
 }
 .input-field:focus {
   @apply shadow-outline outline-none;
-}
-button {
-  white-space: nowrap;
-  @apply w-1/2 px-2 py-0 font-bold bg-white text-purple rounded-sm;
-}
-button:hover {
-  @apply border-purple;
-}
-button:focus {
-  @apply outline-none shadow-outline;
 }
 </style>
