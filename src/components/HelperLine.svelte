@@ -21,6 +21,6 @@ afterUpdate(() => {
 
 <style lang="postcss">
 .line {
-  @apply flex justify-end items-start border-t border-dashed pt-1;
+  @apply flex justify-end items-start border-t border-dashed pt-2;
 }
 </style>

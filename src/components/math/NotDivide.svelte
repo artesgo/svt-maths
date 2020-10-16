@@ -92,7 +92,7 @@ h2 {
   @apply w-full;
 }
 section {
-  @apply mr-1 flex flex-col justify-end items-end;
+  @apply mr-2 flex flex-col justify-end items-end;
 }
 .helper-adder {
   position: relative;
@@ -100,7 +100,7 @@ section {
 .helper-adder .button {
   position: absolute;
   white-space: nowrap;
-  @apply h-5 left-0 ml-1 px-0
+  @apply h-6 left-0 ml-2 px-1
     border rounded-sm border-coal;
 }
 .remove-helper {
@@ -110,9 +110,9 @@ section {
   position: absolute;
   top: 9px;
   white-space: nowrap;
-  @apply px-0 left-0 ml-1;
+  @apply px-1 left-0 ml-2;
 }
 hr {
-  @apply w-full mb-1;
+  @apply w-full mb-2;
 }
 </style>

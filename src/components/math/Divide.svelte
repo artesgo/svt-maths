@@ -104,14 +104,14 @@ h2 {
 }
 section {
   @apply flex flex-col justify-end items-end
-    mr-1 w-4/5;
+    mr-2 w-4/5;
 }
 .helper-adder {
   position: relative;
 }
 .helper-adder .button {
   margin-top: 9px;
-  @apply h-5 left-0 ml-1 px-2 absolute whitespace-no-wrap
+  @apply h-6 left-0 ml-2 px-3 absolute whitespace-no-wrap
     border rounded-sm border-coal;
 }
 .remove-helper {
@@ -120,7 +120,7 @@ section {
 
 .remove-helper .button {
   margin-top: 9px;
-  @apply left-0 ml-1 px-2 absolute whitespace-no-wrap
+  @apply left-0 ml-2 px-3 absolute whitespace-no-wrap
     border rounded-sm border-coal;
 }
 .divisor-dividend {
@@ -132,7 +132,7 @@ section {
 }
 .division-symbol {
   transform: skew(-12deg, 0);
-  @apply ml-1 pt-1 pl-1 
+  @apply ml-2 pt-2 pl-2 
     border-coal border-solid border-t border-l;
 }
 .division-unskew {

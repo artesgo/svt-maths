@@ -62,10 +62,10 @@ function focus() {
 
 <style lang="postcss">
 label {
-  @apply relative w-5 h-5 mb-1 invisible;
+  @apply relative w-6 h-6 mb-2 invisible;
 }
 input {
-  @apply w-5 h-5 border left-0 
+  @apply w-6 h-6 border left-0 
     absolute visible inline-block
     text-center text-coal bg-none;
 }

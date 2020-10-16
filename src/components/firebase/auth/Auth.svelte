@@ -126,10 +126,10 @@ let open = false;
 
 <style lang="postcss">
 label {
-  @apply block mb-2 text-sm font-bold;
+  @apply block mb-3 text-sm font-bold;
 }
 .input-field {
-  @apply border w-full py-2 px-3 mb-3;
+  @apply border w-full py-3 px-4 mb-4;
 }
 .input-field:focus {
   @apply shadow-outline outline-none;

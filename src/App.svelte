@@ -43,7 +43,7 @@ import GlobalCss from "./GlobalCss.svelte";
 <style lang="postcss">
 header {
   @apply flex justify-between
-    px-4
+    px-5
     border-b bg-gray-bright;
 }
 
@@ -52,7 +52,7 @@ header {
 }
 
 .app-header h1 {
-  @apply text-xl pt-3;
+  @apply text-xl pt-4;
 }
 
 .app-controls {
@@ -60,7 +60,7 @@ header {
 }
 
 main {
-  @apply mx-auto p-3 pb-8;
+  @apply mx-auto p-4 pb-9;
 }
 
 @media (min-width: 640px) {
@@ -81,6 +81,6 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @apply py-4 px-6;
+  @apply py-5 px-7;
 }
 </style>

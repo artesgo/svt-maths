@@ -14,7 +14,7 @@ button {
     text-coal
     font-semibold
     border rounded-sm
-    py-1 px-2;
+    py-2 px-3;
 }
 button:hover {
   @apply bg-orange;
